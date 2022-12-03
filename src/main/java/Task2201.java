@@ -14,7 +14,7 @@ public class Task2201 {
                                 .mapToInt(Integer::parseInt)
                                 .reduce(0, Integer::sum))
                 .max(Integer::compare)
-                .orElseThrow();
+                .orElse(0);
     }
     //part2
     // instead of max -> sort reverse, pick 3, sum
@@ -23,11 +23,10 @@ public class Task2201 {
                 .map(s ->
                         Arrays.stream(s.split("\n"))
                                 .mapToInt(Integer::parseInt)
-                                .reduce(0, Integer::sum))
+                                .reduce(0,Integer::sum))
                 .sorted(Comparator.reverseOrder())
                 .limit(limit)
-                .reduce(Integer::sum)
-                .orElseThrow();
+                .reduce(0, Integer::sum);
     }
 
     public static final String INPUT = "2000\n" +
